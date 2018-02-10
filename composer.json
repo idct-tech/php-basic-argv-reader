@@ -1,0 +1,16 @@
+{
+    "name": "idct/php-basic-argv-reader",
+    "description": "Basic Argv reader for PHP to avoid usage of Symfony Console in projects which do not require it's advanced features.",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Bartosz Pacholek",
+            "email": "bartosz@idct.pl"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": { "IDCT\\Cli\\": "src/" }
+    }
+}
