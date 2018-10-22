@@ -72,7 +72,7 @@ class ArgvReader {
      */
     public function getArguments() {
         if ($this->arguments === null) {
-            $this->parseArgvs();
+            $this->parseArgv();
         }
 
         return $this->arguments;
@@ -85,7 +85,7 @@ class ArgvReader {
      */
     public function getOptions() {
         if ($this->options === null) {
-            $this->parseArgvs();
+            $this->parseArgv();
         }
 
         return $this->options;
@@ -98,7 +98,7 @@ class ArgvReader {
      */
     public function getFlags() {
         if ($this->flags === null) {
-            $this->parseArgvs();
+            $this->parseArgv();
         }
 
         return $this->flags;
