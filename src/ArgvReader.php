@@ -45,17 +45,16 @@ class ArgvReader {
 
         foreach($cliArgv as $candidate) {
             $matches = [];
-            if(preg_match("/--([a-z0-9]+?)=(.*)/i", $candidate, $matches)) { //option
+            if(preg_match("/--([a-z0-9\-]+?)=(.*)/i", $candidate, $matches)) { //option
                 $options[$matches[1]] = $matches[2];
-            } elseif (preg_match("/--([a-z0-9^=]+?)$/i", $candidate, $matches)) { //flag
-                //TODO long flags
+            } elseif (preg_match("/--([a-z0-9\-]+)/i", $candidate, $matches)) { //flag
+                //TODO short flags
                 $flags[$matches[1]] = true;
             } else {
                 $arguments[] = $candidate;
                 //argument
             }
         }
-
         $this->arguments = $arguments;
         $this->options = $options;
         $this->flags = $flags;
@@ -137,7 +136,7 @@ class ArgvReader {
      */
     public function hasFlag($name) {
         if (isset($this->getFlags()[$name])) {
-            true;
+            return true;
         }
 
         return false;
